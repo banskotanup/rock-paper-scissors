@@ -11,7 +11,7 @@
     <style type="text/css">
         .btn {
             padding: 10px;
-            margin-top: 150px;
+            margin-top: 200px;
             ;
         }
 
@@ -64,7 +64,7 @@
                                 <div class="col-md-3">
                                     <div class="card" style="text-align: end;">
                                         <div class="card-body bg-info">
-                                            Human Score: <span style="font-weight: bold;">0</span>
+                                            Human Score: <span style="font-weight: bold;" id="humanScore"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                 <div class="col-md-3">
                                     <div class="card" style="text-align: end;">
                                         <div class="card-body bg-info">
-                                            Computer Score: <span style="font-weight: bold;">0</span>
+                                            Computer Score: <span style="font-weight: bold;" id="computerScore"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -95,8 +95,9 @@
                 </div>
 
                 <div style="padding: 20px; margin: 10px; text-align: center; justify-items: center;">
-                    <div style="margin-top: 100px; margin-bottom: 0px;">
-                        <h1 id="result"></h1>
+                    <div style="margin-top: 70px; margin-bottom: 0px;">
+                        <h3 id="result">Game Starts!!!</h3>
+                        <h4 id="resDes"></h4>
                     </div>
                     <button class="btn-rock btn btn-primary">Rock <i class="fa-solid fa-hand-back-fist"></i></button>
                     <button class="btn-paper btn btn-secondary">Paper <i class="fa-solid fa-hand"></i></button>
@@ -107,20 +108,21 @@
         </div>
     </div>
 
-    <footer class="text-center text-black" style="background-color: white; position: sticky; margin-top: 0;">
-        <div class="container p-4 pb-0">
-        </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2024 Copyright:
-            <a class="text-grey" href="#">Anup Banskota</a>
-        </div>
-    </footer>
-
-
+    <div style="position: sticky; bottom: 0;">
+        <footer class="text-center text-black" style="background-color: white;">
+            <div class="container p-4 pb-0">
+            </div>
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2024 Copyright:
+                <a class="text-grey" href="#">Anup Banskota</a>
+            </div>
+        </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <!-- <script src="script.js"></script> -->
+     <script src="scriptUi.js"></script>
 </body>
 
 </html>
