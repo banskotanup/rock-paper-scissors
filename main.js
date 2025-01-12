@@ -9,10 +9,28 @@ const resDes = document.querySelector("#resDes");
 
 const disHumanScore = document.querySelector("#humanScore");
 const disCompScore = document.querySelector("#computerScore");
-const startOver = document.querySelector(".startOver");
+const h_score = document.querySelector(".h_score");
+const c_score = document.querySelector(".c_score");
 
 disHumanScore.textContent = humanScore;
 disCompScore.textContent = computerScore;
+
+function setBorderColor() {
+    if (humanScore > computerScore) {
+        h_score.style.border = "1px solid rgb(255, 215, 0)";
+        c_score.style.border = "1px solid rgb(220, 20, 60)";
+    }
+
+    if (humanScore < computerScore) {
+        c_score.style.border = "1px solid rgb(255, 215, 0)";
+        h_score.style.border = "1px solid rgb(220, 20, 60)";
+    }
+
+    if (humanScore === computerScore) {
+        h_score.style.border = "1px solid rgb(135, 206, 235)";
+        c_score.style.border = "1px solid rgb(135, 206, 235)";
+    }
+}
 
 function getComputerChoice() {
     let randNum = Math.floor(Math.random() * gameWords.length);
@@ -34,9 +52,9 @@ function playRound(humanChoice, computerChoice) {
     computerChoice = getComputerChoice();
     if (humanChoice === computerChoice) {
         result.textContent = `It's a tie!`;
-        result.setAttribute("style", "color: orange;");
+        result.setAttribute("style", "color: rgb(135, 206, 235);");
         resDes.textContent = `Both choose ${humanChoice} & shared 0.5 points each.`;
-        resDes.setAttribute("style", "color: orange;");
+        resDes.setAttribute("style", "color: rgb(135, 206, 235);");
         computerScore = computerScore + 0.5;
         humanScore = humanScore + 0.5;
     }
@@ -45,16 +63,16 @@ function playRound(humanChoice, computerChoice) {
         (computerChoice === "scissor" && humanChoice === "paper") ||
         (computerChoice === "paper" && humanChoice === "rock")) {
         result.textContent = `You lose!`;
-        result.setAttribute("style", "color: red;");
+        result.setAttribute("style", "color: rgb(220, 20, 60);");
         resDes.textContent = `Computer choice ${computerChoice} beats Your choice ${humanChoice} & Computer have been credited 1 points.`;
-        resDes.setAttribute("style", "color: red;");
+        resDes.setAttribute("style", "color: rgb(220, 20, 60);");
         computerScore = computerScore + 1;
     }
     else {
         result.textContent = `You Won!`;
-        result.setAttribute("style", "color: green;");
+        result.setAttribute("style", "color: rgb(255, 215, 0);");
         resDes.textContent = `Computer choice ${computerChoice} lose with Your choice ${humanChoice} & You have been credited 1 points.`;
-        resDes.setAttribute("style", "color: green;")
+        resDes.setAttribute("style", "color: rgb(255, 215, 0);")
         humanScore = humanScore + 1;
     }
 }
@@ -66,6 +84,7 @@ btnRock.addEventListener("click", () => {
     playRound();
     disHumanScore.textContent = humanScore;
     disCompScore.textContent = computerScore;
+    setBorderColor();
     if (humanScore >= 5 || computerScore >= 5) {
         if (humanScore > computerScore) {
             Swal.fire({
@@ -90,7 +109,7 @@ btnRock.addEventListener("click", () => {
         disHumanScore.textContent = humanScore;
         disCompScore.textContent = computerScore;
         result.textContent = `Game Starts!!!`;
-        result.setAttribute("style", "color: black;")
+        result.setAttribute("style", "color: rgb(201, 195, 195);")
         resDes.textContent = ``;
     }
 });
@@ -102,6 +121,7 @@ btnPaper.addEventListener("click", () => {
     playRound();
     disHumanScore.textContent = humanScore;
     disCompScore.textContent = computerScore;
+    setBorderColor()
     if (humanScore >= 5 || computerScore >= 5) {
         if (humanScore > computerScore) {
             Swal.fire({
@@ -124,7 +144,7 @@ btnPaper.addEventListener("click", () => {
         disHumanScore.textContent = humanScore;
         disCompScore.textContent = computerScore;
         result.textContent = `Game Starts!!!`;
-        result.setAttribute("style", "color: black;")
+        result.setAttribute("style", "color: rgb(201, 195, 195);")
         resDes.textContent = ``;
     }
 });
@@ -136,6 +156,7 @@ btnScissor.addEventListener("click", () => {
     playRound();
     disHumanScore.textContent = humanScore;
     disCompScore.textContent = computerScore;
+    setBorderColor()
     if (humanScore >= 5 || computerScore >= 5) {
         if (humanScore > computerScore) {
             Swal.fire({
@@ -158,10 +179,7 @@ btnScissor.addEventListener("click", () => {
         disHumanScore.textContent = humanScore;
         disCompScore.textContent = computerScore;
         result.textContent = `Game Starts!!!`;
-        result.setAttribute("style", "color: black;")
+        result.setAttribute("style", "color: rgb(201, 195, 195);")
         resDes.textContent = ``;
     }
 });
-
-
-
